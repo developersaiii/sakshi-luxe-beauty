@@ -59,29 +59,44 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-rose: var(--rose);
+  --color-blush: var(--blush);
+  --font-display: "Cormorant Garamond", serif;
+  --font-sans: "Jost", sans-serif;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.75rem;
+  --background: oklch(0.99 0.008 20);
+  --foreground: oklch(0.22 0.04 350);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.22 0.04 350);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --popover-foreground: oklch(0.22 0.04 350);
+  --primary: oklch(0.62 0.16 355);
+  --primary-foreground: oklch(0.99 0.005 20);
+  --secondary: oklch(0.96 0.02 20);
+  --secondary-foreground: oklch(0.22 0.04 350);
+  --muted: oklch(0.96 0.015 20);
+  --muted-foreground: oklch(0.5 0.03 350);
+  --accent: oklch(0.82 0.13 80);
+  --accent-foreground: oklch(0.22 0.04 350);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.99 0.003 247);
+  --border: oklch(0.92 0.02 20);
+  --input: oklch(0.92 0.02 20);
+  --ring: oklch(0.62 0.16 355);
+  --gold: oklch(0.78 0.14 80);
+  --gold-soft: oklch(0.88 0.08 85);
+  --rose: oklch(0.72 0.14 10);
+  --blush: oklch(0.95 0.03 15);
+  --gradient-gold: linear-gradient(135deg, oklch(0.85 0.12 85), oklch(0.7 0.15 70), oklch(0.85 0.12 85));
+  --gradient-pink: linear-gradient(135deg, oklch(0.96 0.025 15), oklch(0.88 0.08 5));
+  --gradient-hero: linear-gradient(180deg, oklch(0.22 0.04 350 / 0.1), oklch(0.22 0.04 350 / 0.75));
+  --shadow-luxury: 0 30px 60px -20px oklch(0.62 0.16 355 / 0.25), 0 12px 30px -10px oklch(0.78 0.14 80 / 0.2);
+  --shadow-soft: 0 10px 30px -10px oklch(0.62 0.16 355 / 0.18);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +155,84 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility text-gold-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gold-gradient {
+  background: var(--gradient-gold);
+}
+
+@utility bg-pink-gradient {
+  background: var(--gradient-pink);
+}
+
+@utility shadow-luxury {
+  box-shadow: var(--shadow-luxury);
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@utility gold-border {
+  border: 1px solid transparent;
+  background-image: linear-gradient(var(--background), var(--background)), var(--gradient-gold);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 30px oklch(0.78 0.14 80 / 0.3); }
+  50% { box-shadow: 0 0 60px oklch(0.78 0.14 80 / 0.6); }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+@utility animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@utility animate-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@utility animate-shimmer {
+  background: linear-gradient(90deg, transparent, oklch(0.88 0.08 85 / 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
 }
