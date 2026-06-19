@@ -80,10 +80,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Sakshi Beauty Parlour — Luxury Bridal & Beauty Studio, Shrirampur" },
       { name: "description", content: "Premium beauty, bridal makeup, hair & skincare services in Shrirampur, Maharashtra. Book your appointment with Sakshi Beauty Parlour today." },
       { name: "author", content: "Sakshi Beauty Parlour" },
-      { property: "og:title", content: "Sakshi Beauty Parlour — Luxury Bridal & Beauty Studio" },
-      { property: "og:description", content: "Premium beauty, bridal makeup, hair & skincare services in Shrirampur, Maharashtra." },
+      { property: "og:title", content: "Sakshi Beauty Parlour — Luxury Bridal & Beauty Studio, Shrirampur" },
+      { property: "og:description", content: "Premium beauty, bridal makeup, hair & skincare services in Shrirampur, Maharashtra. Book your appointment with Sakshi Beauty Parlour today." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Sakshi Beauty Parlour — Luxury Bridal & Beauty Studio, Shrirampur" },
+      { name: "twitter:description", content: "Premium beauty, bridal makeup, hair & skincare services in Shrirampur, Maharashtra. Book your appointment with Sakshi Beauty Parlour today." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2746ee57-71ee-42e0-995b-7d56b037bc53/id-preview-7b8a5dd6--10b5dac9-3c48-4771-92c4-bb787d85997b.lovable.app-1781800611306.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2746ee57-71ee-42e0-995b-7d56b037bc53/id-preview-7b8a5dd6--10b5dac9-3c48-4771-92c4-bb787d85997b.lovable.app-1781800611306.png" },
     ],
     links: [
       {
